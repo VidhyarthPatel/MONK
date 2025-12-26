@@ -1,26 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Bebas+Neue&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --background: #f7e8de; */
+  --foreground: #1e1e1e;
+  
+  --primary: #de1f25;
+  --secondary: #fffeff;
+  --tertiary: #1e1e1e;
+
+  --background: #f3e5da; /* Exact peach from image */
+  --primary-orange: #ff6d42; /* The coral orange from image */
+  --text-main: #111111;
+  
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-inter: "Inter", sans-serif;
 }
 
 @theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  
+  --font-display: var(--font-bebas);
+  --font-body: var(--font-inter);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter);
 }
