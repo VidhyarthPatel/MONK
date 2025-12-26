@@ -1,24 +1,55 @@
+import CreativeFooter from "@/components/footer";
 import HeroSection from "@/components/HeroSection";
-import ClientMarquee from "@/components/MarqueeRow";
+import Marquee from "@/components/MarqueeRow";
 import Methodology from "@/components/Methodology";
 import Navbar from "@/components/Navbar";
-import ParallaxGallery from "@/components/Ourwork";
+import Work from "@/components/Ourwork";
 import Playground from "@/components/Playground";
-import ServicesSection from "@/components/ServiceSection";
-import WorkExpansion from "@/components/WorkExpansion";
+import Services from "@/components/ServiceSection";
+import LetsWork from "@/components/WorkExpansion";
+import { NavColorProvider } from "@/context/NavColorContext";
+import SectionTracker from "@/components/SectionTracker";
+import SmoothScroll from "@/components/SmoothScroll";
 
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <HeroSection/>
-      <ParallaxGallery />
-      <ClientMarquee />
-      <ServicesSection/>
-      <WorkExpansion />
-      <Methodology/>
-      <Playground/>
-    </div>
+    <NavColorProvider>
+      <SmoothScroll>
+        <div className="min-h-screen">
+          <Navbar />
+
+          <SectionTracker color="black">
+            <HeroSection />
+          </SectionTracker>
+
+          <SectionTracker color="black">
+            <Work />
+          </SectionTracker>
+
+          <SectionTracker color="black">
+            <Marquee />
+          </SectionTracker>
+
+          <SectionTracker color="black">
+            <Services />
+          </SectionTracker>
+
+          <LetsWork />
+
+          <SectionTracker color="black">
+            <Methodology />
+          </SectionTracker>
+
+          <SectionTracker color="black">
+            <Playground />
+          </SectionTracker>
+
+          <SectionTracker color="white">
+            <CreativeFooter />
+          </SectionTracker>
+        </div>
+      </SmoothScroll>
+    </NavColorProvider>
   );
 }

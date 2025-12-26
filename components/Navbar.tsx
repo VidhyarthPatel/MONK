@@ -8,7 +8,8 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import PrimaryButton from "@/ui/PrimaryButton";
-import { Menu, X, ChevronDown } from "lucide-react"; // Install lucide-react or use your SVGs
+import { Menu, X, ChevronDown } from "lucide-react";
+import { useNavColor } from "@/context/NavColorContext";
 
 const navLinks = [
   { name: "Home", hasDropdown: true },
@@ -21,14 +22,15 @@ const navLinks = [
 
 export default function Navbar() {
   const [hidden, setHidden] = useState(false);
-  const [isOpen, setIsOpen] = useState(false); // Mobile menu state
+  const [isOpen, setIsOpen] = useState(false);
   const { scrollY } = useScroll();
+  const { navColor } = useNavColor(); // Consume context
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
     if (latest > previous && latest > 150) {
       setHidden(true);
-      setIsOpen(false); // Close menu on scroll
+      setIsOpen(false);
     } else {
       setHidden(false);
     }
@@ -38,6 +40,14 @@ export default function Navbar() {
     closed: { opacity: 0, scale: 0.95, y: -20 },
     open: { opacity: 1, scale: 1, y: 0 },
   };
+
+  // Dynamic colors based on navColor state
+  const textColor = navColor === "white" ? "text-white" : "text-[#1e1e1e]";
+  const logoBg = navColor === "white" ? "bg-white" : "bg-[#de1f25]";
+  const logoText = navColor === "white" ? "text-[#de1f25]" : "text-white";
+  const logoDot = navColor === "white" ? "text-white" : "text-[#de1f25]";
+  const buttonVariant = navColor === "white" ? "primary" : "tertiary"; // Assuming 'primary' is white/light
+  const mobileToggleColor = navColor === "white" ? "text-white border-white/20 bg-white/10" : "text-[#1e1e1e] bg-white border-gray-200";
 
   return (
     <>
@@ -51,25 +61,25 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-10 py-6 pointer-events-none"
       >
         {/* LOGO PILL */}
-        <div className="flex items-center gap-3 pointer-events-auto bg-white/80 backdrop-blur-md lg:bg-transparent p-2 lg:p-0 rounded-2xl">
+        <div className={`flex items-center gap-3 pointer-events-auto p-2 lg:p-0 rounded-2xl transition-colors duration-300 ${navColor === 'black' ? 'bg-white/80 backdrop-blur-md lg:bg-transparent' : ''}`}>
           <div className="relative z-10 flex items-center gap-2 cursor-pointer">
-            <div className="w-8 h-8 bg-[#de1f25] rounded-lg flex items-center justify-center font-black text-white italic">
+            <div className={`w-8 h-8 ${logoBg} rounded-lg flex items-center justify-center font-black ${logoText} italic transition-colors duration-300`}>
               M
             </div>
-            <span className="font-bold tracking-tighter text-xl uppercase text-[#1e1e1e]">
-              Monk<span className="text-[#de1f25]">.</span>
+            <span className={`font-bold tracking-tighter text-xl uppercase ${textColor} transition-colors duration-300`}>
+              Monk<span className={logoDot}>.</span>
             </span>
           </div>
 
           {/* DESKTOP NAV LINKS */}
-          <div className="hidden lg:flex items-center gap-8 px-8 py-4 rounded-[40px]">
+          <div className={`hidden lg:flex items-center gap-8 px-8 py-4 rounded-[40px] transition-colors duration-300 ${navColor === 'black' ? 'bg-white/50 backdrop-blur-sm' : 'bg-black/20 backdrop-blur-sm'}`}>
             {navLinks.map((link) => (
               <div key={link.name} className="group flex items-center gap-1 cursor-pointer">
-                <span className="text-[#1e1e1e] font-medium text-[15px] hover:text-[#de1f25] transition-colors">
+                <span className={`${textColor} font-medium text-[15px] hover:text-[#de1f25] transition-colors duration-300`}>
                   {link.name}
                 </span>
                 {link.hasDropdown && (
-                  <ChevronDown className="w-4 h-4 text-[#1e1e1e] group-hover:text-[#de1f25] transition-transform group-hover:rotate-180" />
+                  <ChevronDown className={`w-4 h-4 ${textColor} group-hover:text-[#de1f25] transition-all duration-300 group-hover:rotate-180`} />
                 )}
               </div>
             ))}
@@ -79,13 +89,13 @@ export default function Navbar() {
         {/* RIGHT SIDE: CTA & HAMBURGER */}
         <div className="flex items-center gap-4 pointer-events-auto">
           <div className="hidden sm:block">
-            <PrimaryButton text="Let's Talk" variant="tertiary" />
+            <PrimaryButton text="Let's Talk" variant={buttonVariant} />
           </div>
-          
+
           {/* Mobile Toggle Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-3 bg-white border border-gray-200 rounded-full shadow-sm text-[#1e1e1e]"
+            className={`lg:hidden p-3 rounded-full shadow-sm transition-colors duration-300 ${mobileToggleColor}`}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -112,7 +122,7 @@ export default function Navbar() {
               </div>
             ))}
             <div className="mt-4 sm:hidden">
-                <PrimaryButton text="Let's Talk" variant="tertiary" className="w-full" />
+              <PrimaryButton text="Let's Talk" variant="tertiary" className="w-full" />
             </div>
           </motion.div>
         )}

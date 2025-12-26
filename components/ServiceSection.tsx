@@ -39,7 +39,7 @@ export default function ServicesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative w-full bg-[#FAF9F6] py-32 px-6 md:px-20 overflow-hidden">
+    <section className="relative w-full bg-[#FAF9F6] py-32 h-[160.4vh] px-6 md:px-20 overflow-hidden">
       
       {/* SECTION HEADER */}
       <div className="max-w-7xl mx-auto mb-32">

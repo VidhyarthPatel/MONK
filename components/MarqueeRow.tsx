@@ -73,7 +73,7 @@ function VelocityText({ children, baseVelocity = 100 }: MarqueeProps) {
 
 export default function MarqueeWall() {
   return (
-    <section className="py-20 bg-white overflow-hidden flex flex-col justify-center min-h-[60vh]">
+    <section className="lg:py-20 bg-[#FAF9F6] overflow-hidden flex flex-col justify-center lg:min-h-[60vh] ">
       <div className="text-[#ff6d42]">
         <VelocityText baseVelocity={-1}>Creative ideas</VelocityText>
       </div>
