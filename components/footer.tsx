@@ -26,7 +26,7 @@ export default function CreativeFooter() {
   const socials = ["Instagram", "LinkedIn", "Twitter", "Behance"];
 
   return (
-    <footer className="bg-background pt-20 pb-10 px-6 md:px-20 border-t border-white/5 relative overflow-hidden">
+    <footer className="bg-background h-[110vh] md:h-screen pt-5 pb-0 px-6 md:px-20 border-t border-white/5 relative overflow-hidden">
       
       {/* 1. THE GIANT LOGO / BRAND MARK */}
       <div className="mb-20 overflow-hidden">
@@ -84,7 +84,7 @@ export default function CreativeFooter() {
                 key={social}
                 href="#"
                 whileHover={{ x: -10 }}
-                className="text-xl text-black hover:text-white transition-colors uppercase tracking-tight"
+                className="text-xl text-black hover:text-[#ff6d42] transition-colors uppercase tracking-tight"
               >
                 {social}
               </motion.a>

@@ -73,7 +73,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
       />
 
       {/* Text Wrapper */}
-      <div className="relative z-10 h-6 overflow-hidden flex flex-col items-center">
+      <div className="relative z-10 h-5 overflow-hidden flex flex-col items-center">
         {/* Top Text (Slides Out) */}
         <motion.span
           variants={{

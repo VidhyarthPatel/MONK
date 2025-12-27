@@ -5,7 +5,7 @@ import Counter from "./Counter";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-[#f3e5da] min-h-screen pt-24 md:pt-40 flex flex-col justify-between overflow-hidden">
+    <section className="relative bg-[#f3e5da] h-screen pt-24 md:pt-40 flex flex-col justify-between overflow-hidden">
       
       {/* 1. TOP CONTENT GRID */}
       <div className="max-w-9xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center justify-center">
@@ -51,7 +51,7 @@ export default function HeroSection() {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1], delay: 0.2 }}
-            className="w-full flex justify-center items-end"
+            className="w-full flex justify-center items-end pb-0"
         >
           {/* Adjusted text size for mobile and used negative margin to "tuck" it into the bottom */}
           <h2 className="text-[32vw] font-black text-[#ff6d42] leading-[0.8] uppercase tracking-tighter select-none -mb-[5vw] md:-mb-[8vw]">

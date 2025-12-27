@@ -80,21 +80,11 @@ export default function WorkExpansion() {
              the text size independently so it stays 'pinned' inside.
           */}
           <motion.div style={{ scale: textScale }} className="flex items-center justify-center">
-            <h2 className="text-white font-black text-center leading-none pointer-events-none select-none uppercase whitespace-nowrap text-4xl md:text-6xl">
+            <h2 className="text-white font-black text-center leading-none pointer-events-none select-none uppercase whitespace-nowrap text-md xl:text-sm">
               Let&apos;s Work
             </h2>
           </motion.div>
         </motion.div>
-
-        {/* Floating Arrow - Keeps the clean look of your image */}
-        <div className="absolute bottom-10 right-10 z-50">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center bg-white text-black shadow-lg transition-transform hover:scale-110 active:scale-95"
-          >
-            <span className="text-xl font-bold">↑</span>
-          </button>
-        </div>
       </motion.div>
     </div>
   );
