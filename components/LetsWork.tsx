@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useTransform, useMotionValueEvent } from "framer-motion";
 import { useNavColor } from "@/context/NavColorContext";
 import { useSmoothScroll } from "@/context/SmoothScrollContext";
+import PrimaryButton from "@/ui/PrimaryButton";
 
 export default function WorkExpansion() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -74,7 +75,7 @@ export default function WorkExpansion() {
         {/* The Expanding Circle */}
         <motion.div
           style={{ scale: circleScale }}
-          className="w-48 h-48 md:w-64 md:h-64 bg-tertiary rounded-full flex items-center justify-center relative shadow-2xl"
+          className="w-48 h-48 md:w-64 md:h-64 bg-tertiary cursor-pointer rounded-full flex items-center justify-center relative shadow-2xl"
         >
           {/* By wrapping the text in another motion div, we can control 
              the text size independently so it stays 'pinned' inside.
@@ -82,6 +83,7 @@ export default function WorkExpansion() {
           <motion.div style={{ scale: textScale }} className="flex items-center justify-center">
             <h2 className="text-white font-black text-center leading-none pointer-events-none select-none uppercase whitespace-nowrap text-md xl:text-sm">
               Let&apos;s Work
+              {/* <PrimaryButton text="Let's Work" className=""/> */}
             </h2>
           </motion.div>
         </motion.div>

@@ -17,13 +17,9 @@ export default function Home() {
         <div>
           <Navbar />
           <HeroSection />
-
           <Work />
-
           <Marquee />
-
           <Services />
-
           <LetsWork />
           <Methodology />
           <Playground />
