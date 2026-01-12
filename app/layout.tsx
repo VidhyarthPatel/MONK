@@ -13,10 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://monk-agency.vercel.app/"), // Replace with actual URL when deployed
-  title: "Creative Agency | Innovative Digital Solutions",
+  metadataBase: new URL("https://monk-agency.vercel.app/"),
+  title: {
+    default: "MONK | Creative Agency & Digital Solutions",
+    template: "%s | MONK Creative Agency",
+  },
   description:
-    "We are a premier creative agency specializing in branding, web design, and digital marketing. Transform your business with our innovative solutions.",
+    "MONK is a premier creative agency specializing in branding, web design, and digital marketing. We sharpen your brand with quality work and innovative digital experiences.",
   keywords: [
     "creative agency",
     "web design",
@@ -25,25 +28,57 @@ export const metadata: Metadata = {
     "SEO",
     "app development",
     "UI/UX design",
+    "digital products",
+    "software development",
   ],
+  authors: [{ name: "MONK Agency" }],
+  creator: "MONK Agency",
+  publisher: "MONK Agency",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
-    title: "Creative Agency | Innovative Digital Solutions",
+    title: "MONK | Creative Agency & Digital Solutions",
     description:
-      "We are a premier creative agency specializing in branding, web design, and digital marketing.",
-    url: "https://monk-agency.vercel.app/", // Replace with actual URL when deployed
+      "We are a premier creative agency specializing in branding, web design, and digital marketing. Transform your business with our innovative solutions.",
+    url: "https://monk-agency.vercel.app/",
+    siteName: "MONK Creative Agency",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "MONK Creative Agency Preview",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Creative Agency | Innovative Digital Solutions",
+    title: "MONK | Creative Agency & Digital Solutions",
     description:
-      "We are a premier creative agency specializing in branding, web design, and digital marketing.",
+      "We are a premier creative agency specializing in branding, web design, and digital marketing. Transform your business with our innovative solutions.",
+    creator: "@monkagency", // Placeholder, can be updated if they have a handle
+    images: ["/twitter-image.png"],
   },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png", // Optional: Add if you have one
+    apple: "/apple-touch-icon.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
